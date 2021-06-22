@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+.suggestion{
+  cursor: pointer;
+  border: 1px solid black;
+}
+.suggestion:hover{
+  background-color:#282c34;
+  color:aliceblue;
+}

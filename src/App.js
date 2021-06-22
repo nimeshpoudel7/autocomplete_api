@@ -30,8 +30,14 @@ function App() {
   return (
     <div className="container">
       <input className='col-md-12' style={{marginTop: 20 }} type="text"onChange={(event)=>onchangeHandler(event.target.value)} value={text}></input>
-     <h1>{text}</h1>
+     {/* <h1>{text}</h1> */}
+     <div className="boxsug">
+     {suggestion && suggestion.map((item,acc)=>
+        <div key={acc} className=" col-md-12 suggestion">{item.email}</div>
+     )}
+     </div>
     </div>
+
   );
 }
 
