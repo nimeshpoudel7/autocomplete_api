@@ -14,6 +14,14 @@ function App() {
    loaduser()
   }, [])
   
+  const onsugestion=(text)=>{
+    setText(text)
+    setsuggestion([])
+    console.log(text)
+    console.log(suggestion)
+  }
+
+  
   const onchangeHandler=(text)=>{
     let matches=[]
     if (user.length>0) {
@@ -29,11 +37,16 @@ function App() {
   // console.log(text)
   return (
     <div className="container">
-      <input className='col-md-12' style={{marginTop: 20 }} type="text"onChange={(event)=>onchangeHandler(event.target.value)} value={text}></input>
+      <input className='col-md-12' style={{marginTop: 20 }} type="text"onChange={(event)=>onchangeHandler(event.target.value)} value={text}
+      onBlur={()=>{
+        setTimeout(() => {
+          setsuggestion([])
+        }, 100);
+      }}></input>
      {/* <h1>{text}</h1> */}
      <div className="boxsug">
      {suggestion && suggestion.map((item,acc)=>
-        <div key={acc} className=" col-md-12 suggestion">{item.email}</div>
+        <div key={acc} className=" col-md-12 suggestion" onClick={()=>onsugestion(item.email)}>{item.email}</div>
      )}
      </div>
     </div>
